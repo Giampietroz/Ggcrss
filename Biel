@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loja Online</title>
+
+<link rel="stylesheet" href="estilo.css">
+
+</head>
+
+<body>
+
+
+<nav class="barra-topo">
+
+<ul>
+
+<li><a href="#">Início</a></li>
+
+<li><a href="#">Produtos</a></li>
+
+<li><a href="#">Sobre</a></li>
+
+<li><a href="#">Contato</a></li>
+
+</ul>
+
+</nav>
+
+
+<div class="aviso">
+
+<p class="mensagem">Frete grátis para compras acima de R$ 150</p>
+
+<span id="fechar-aviso">×</span>
+
+</div>
+
+
+<main>
+
+<p>Bem-vindo à nossa loja online. Aqui você encontra produtos
+
+selecionados com ótimos preços e entrega para todo o Brasil.</p>
+
+<p>Navegue pelo menu superior para conhecer nossas categorias,
+
+saber mais sobre a empresa ou entrar em contato com a equipe.</p>
+
+</main>
+
+
+</body>
+
+</html>
+<!--1. Por que foi necessário adicionar espaço extra no topo? O que aconteceria sem o ajuste?
+
+Com position: fixed, a barra é removida do fluxo normal do documento: os demais elementos se comportam como se ela não existisse e começam a ser desenhados a partir do topo da página. Como a barra fica sobreposta ao conteúdo, ela cobriria os primeiros 50px da página. Sem o ajuste,
+
+o aviso de boas-vindas (primeiro elemento do fluxo) e o começo do conteúdo ficariam escondidos atrás da barra, impossíveis de ler ou clicar (inclusive o botão ×). O espaço foi calculado assim: altura da barra = 15px + 20px + 15px = 50px, mais 15px de folga = 65px de margem superior.
+
+2. Diferença entre position: fixed e position: absolute. O que muda ao rolar a página?
+
+Nos dois casos o elemento sai do fluxo normal, mas o ponto de referência é diferente. Com fixed, a referência é a janela do navegador (viewport): a barra permanece sempre no mesmo lugar da tela, mesmo ao rolar a página, e o usuário a vê o tempo todo. Com absolute, a referência é o ancestral posicionado mais próximo (ou, se não houver, a página inicial): o elemento é posicionado em relação a ele e rola junto com o conteúdo, ou seja, ao descer a página a barra sumiria da tela. É por isso que o #fechar-aviso usa absolute dentro de um pai com position: relative, enquanto a barra de navegação usa fixed.
+
+3. O que acontece com a largura da .barra-topo sem box-sizing: border-box?
+
+Sem essa regra, o navegador usa o padrão content-box, em que width e height se aplicam apenas ao conteúdo. Pela fórmula do Box Model:
+
+largura total = width + padding-left + padding-right
+
++ border-left + border-right
+
+
+Com width: 100% e padding horizontal de 20px de cada lado, a largura total seria 100% + 40px. Como a barra começa em left: 0, ela ultrapassaria a largura da janela em 40px, causando barra de rolagem horizontal e fazendo o último item sair da área visível. Com box-sizing: border-box, o padding e a borda passam a ser incluídos no width, então a barra ocupa exatamente 100% da janela.-->
